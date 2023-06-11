@@ -1,0 +1,45 @@
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://userservice
+          predicates:
+            - Path=/user/*
+        - id: order-service
+          uri: lb://orderservice
+          predicates:
+            - Path=/orders/*
+#          filters:
+#            - AddRequestHeader=p, blue
+      default-filters:
+        - AddRequestHeader=p, blue
+
+      ##允许请求跨域
+      globalcors:
+        add-to-simple-url-handler-mapping: true # 允许Options请求询问是否允许跨域
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://orderservice:8083"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "DELETE"
+              - "PUT"
+              - "OPTIONS"
+            allowedHeaders: "*"
+            allowCredentials: true  # 允许cookie
+            maxAge: 360000
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:10086/eureka
+server:
+  port: 80
+

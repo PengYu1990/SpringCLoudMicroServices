@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="user">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+<script>
+
+    $(function () {
+        $.ajax({
+            url: "http://localhost:9000/user/1",
+            data: {
+                auth: 'admin'
+            },
+            success: function (user) {
+                $("#user").html("<strong>" + user.username + "</strong>" + user.email);
+            }
+        });
+    });
+</script>
+</body>
+</html>

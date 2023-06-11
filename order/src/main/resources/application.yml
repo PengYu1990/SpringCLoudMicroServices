@@ -1,0 +1,28 @@
+
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  application:
+    name: orderservice
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/microservice_order
+    username: root
+    password: 123456
+  cloud:
+    openfeign:
+      httpclient:
+        enabled: true
+        max-connections: 200
+        max-connections-per-route: 50
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:10086/eureka
+server:
+  port: 8083
+
