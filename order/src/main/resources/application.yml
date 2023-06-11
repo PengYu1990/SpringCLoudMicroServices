@@ -9,7 +9,7 @@ spring:
     name: orderservice
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/microservice_order
+    url: jdbc:mysql://localhost:3306/microservice_order
     username: root
     password: 123456
   cloud:
@@ -22,7 +22,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka:10086/eureka
+      defaultZone: http://localhost:10086/eureka
 server:
   port: 8083
 

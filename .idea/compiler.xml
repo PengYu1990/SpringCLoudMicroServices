@@ -9,9 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="eureka-server" />
-        <module name="sping-study" />
         <module name="gateway" />
         <module name="order" />
+        <module name="SpringCloudMicroServices" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
